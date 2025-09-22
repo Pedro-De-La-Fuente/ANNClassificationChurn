@@ -7,13 +7,12 @@ import pickle
 
 model = tf.keras.models.load_model('model.h5')
 
-with open('label_encoder_geo.pk1','rb') as file:
-    label_encoder_gender = pickle.load(file)
-
-with open('onehot_encoder_geo.pk1','rb') as file:
-    onehot_encoder_geo = pickle.load(file)
-    
-with open('scaler.pk1','rb') as file:
+#load encoder and scaler
+with open('onehot_encoder_geo.pkl','rb') as file:
+    label_encoder_geo=pickle.load(file)
+with open('label_encoder_geo.pkl', 'rb') as file:
+    label_encoder_gender=pickle.load(file)
+with open('scaler.pkl','rb') as file:
     scaler = pickle.load(file)
 
 st.title('Customer Churn Prediction')
